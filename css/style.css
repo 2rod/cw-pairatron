@@ -19,3 +19,13 @@ input[type="button"].button-primary:focus {
   background-color: #ccc;
   border-color: #ccc;
 }
+
+.centered {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
