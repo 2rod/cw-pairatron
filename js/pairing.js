@@ -9,7 +9,7 @@ const pairingProblem = (num1, num2) => {
     oddPair = pairs.pop()
     num1 -=1
   }
-  for (let j = 0; j < num2 - 1; j++) {
+  for (let j = 0; j < num2; j++) {
     res[j] = []
     for (let k = 0; k < num1/2; k++) {
       res[j].push([pairs[k], pairs[num1 - 1 - k]]);
