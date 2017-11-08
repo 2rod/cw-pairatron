@@ -2,7 +2,7 @@
   "name": "pairatron",
   "version": "1.0.0",
   "engines": {
-    "node": ">=8.6.x"
+    "node": "8.6.x"
   },
   "description": "CW pairing app",
   "main": "index.js",
