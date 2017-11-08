@@ -21,13 +21,13 @@ const generatePairs = (numArr, numRounds, extraNum) => {
     for (let k = 0; k < halfLen; k++) {
       res[j].push([numArr[k], numArr[numArr.length - 1 - k]]);
     }
-    let l = Math.round(Math.random() * Math.floor(halfLen - 1));
+    let l = getRandomInt(halfLen);
     if (extraNum !== undefined) {
       res[j][l].push(extraNum);
       const extraNum2 = res[j][l].shift();
-      let m = Math.round(Math.random() * Math.floor(halfLen - 1));
+      let m = getRandomInt(halfLen);
       while (m === l) {
-        m = Math.round(Math.random() * Math.floor(halfLen - 1));
+        m = getRandomInt(halfLen);
       }
       res[j][m].push(extraNum2);
     }
@@ -49,4 +49,8 @@ const generateTrioCase = (numArr, numRounds) => {
     numRounds--;
   }
   return res;
+}
+
+const getRandomInt = (max) => {
+  return Math.round(Math.random() * Math.floor(max - 1))
 }
