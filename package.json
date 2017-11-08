@@ -9,7 +9,6 @@
   "scripts": {
     "start": "node index.js",
     "build": "npm run clean && NODE_ENV=production",
-    "postinstall": "node heroku-build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
