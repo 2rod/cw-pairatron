@@ -16,10 +16,10 @@
   "dependencies": {
     "koa": "^2.4.1",
     "koa-static": "^4.0.1",
+  },
+  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0"
-  },
-  "devDependencies": {
   }
 }
