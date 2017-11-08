@@ -1,14 +1,14 @@
 $(document).ready(function () {
+  let $container = $('.container');
+  let $numPeople = $('#numPeople');
+  let $numRounds = $('#numRounds');
+  let $button = $('.button-primary');
+  let $error = $('.error');
+  let $results = $('.results');
+  let $table = $('.results table');
   $('.button-primary').click((e) => {
     e.preventDefault();
 
-    let $container = $('.container');
-    let $numPeople = $('#numPeople');
-    let $numRounds = $('#numRounds');
-    let $button = $('.button-primary');
-    let $error = $('.error');
-    let $results = $('.results');
-    let $table = $('.results table');
     $error.hide().html(''); // hide previous error messages
 
     $results.fadeOut('fast', () => { // hide previous
@@ -57,6 +57,14 @@ $(document).ready(function () {
       }
     });
 
+  });
+
+  $numPeople.change(() => {
+    $button.attr('value', 'GO!');
+  });
+
+  $numRounds.change(() => {
+    $button.attr('value', 'GO!');
   });
 
   const pairsOutput = (pairs) => {
