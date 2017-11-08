@@ -19,8 +19,8 @@ $(document).ready(function () {
       const num2 = Number($numRounds.val());
 
       // check for minimum values
-      if (num1 < 2) { // display warning and focus on input fields
-        $error.append(messageOutput('Number of people must be >= 2!'))
+      if (num1 < 3) { // display warning and focus on input fields
+        $error.append(messageOutput('Number of people must be >= 3!'))
           .show();
         $numPeople.focus();
       }
