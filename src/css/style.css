@@ -8,8 +8,8 @@ input[type="submit"].button-primary:focus {
 
 input[type="submit"].button-primary:hover {
   color: #fff;
-  background-color: #ccc;
-  border-color: #ccc;
+  background-color: #db6300;
+  border-color: #db6300;
 }
 
 input[type="text"]:focus {
