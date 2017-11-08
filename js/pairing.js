@@ -17,12 +17,14 @@ const pairingProblem = (num1, num2) => {
     let l = Math.round(Math.random() * Math.floor(num1/2 - 1))
     if (oddPair !== undefined) {
       res[j][l].push(oddPair)
-      const thirdPerson = res[j][l].shift()
-      let m = Math.round(Math.random() * Math.floor(num1/2 - 1))
-      while (m === l) {
-        m = Math.round(Math.random() * Math.floor(num1/2 - 1))
+      if (oddPair != 3) {
+        const thirdPerson = res[j][l].shift()
+        let m = Math.round(Math.random() * Math.floor(num1/2 - 1))
+        while (m === l) {
+          m = Math.round(Math.random() * Math.floor(num1/2 - 1))
+        }
+        res[j][m].push(thirdPerson)
       }
-      res[j][m].push(thirdPerson)
     }
     pairs.splice(1, 0, pairs.pop());
   }
