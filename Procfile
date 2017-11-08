@@ -1,1 +1,1 @@
-web: node --harmony-async-await index.js
+web: node index.js
