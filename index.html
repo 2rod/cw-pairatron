@@ -40,17 +40,17 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row flex">
-      <div class="six columns" style="margin-top: 25%">
+      <div class="six columns">
         <h4 class="centered">Pair-o-Tron</h4>
 
         <form>
           <div class="row flex">
             <label for="numPeople">Number of people</label>
-            <input class="three columns" type="text"  id="numPeople">
+            <input class="three columns" type="number"  id="numPeople" min="2" autofocus>
           </div>
           <div class="row flex">
             <label for="numRounds">Number of rounds</label>
-            <input class="three columns" type="text"  id="numRounds">
+            <input class="three columns" type="number"  id="numRounds" min="6">
           </div>
           <div class="row flex">
             <input class="button-primary" type="submit" value="GO!">
