@@ -1,32 +1,52 @@
 const pairingProblem = (num1, num2) => {
-  const res = []
   const pairs = []
   let oddPair;
   for (let i = 1; i <= num1; i++) {
     pairs.push(i)
   }
   if (num1 % 2 === 1) {
-    oddPair = pairs.pop()
-    num1 -=1
+    if (num1 == 3) { // handle special case for 3
+      return generateTrioCase(pairs, num2);
+    } else oddPair = pairs.pop()
+      num1 -=1
   }
-  for (let j = 0; j < num2; j++) {
-    res[j] = []
-    for (let k = 0; k < num1/2; k++) {
-      res[j].push([pairs[k], pairs[num1 - 1 - k]]);
+  return generatePairs(pairs, num2, oddPair);
+}
+
+const generatePairs = (numArr, numRounds, extraNum) => {
+  const res = [];
+  const halfLen = numArr.length/2;
+  for (let j = 0; j < numRounds; j++) {
+    res[j] = [];
+    for (let k = 0; k < halfLen; k++) {
+      res[j].push([numArr[k], numArr[numArr.length - 1 - k]]);
     }
-    let l = Math.round(Math.random() * Math.floor(num1/2 - 1))
-    if (oddPair !== undefined) {
-      res[j][l].push(oddPair)
-      if (num1 != 3) {
-        const thirdPerson = res[j][l].shift()
-        let m = Math.round(Math.random() * Math.floor(num1/2 - 1))
-        while (m === l) {
-          m = Math.round(Math.random() * Math.floor(num1/2 - 1))
-        }
-        res[j][m].push(thirdPerson)
+    let l = Math.round(Math.random() * Math.floor(halfLen - 1));
+    if (extraNum !== undefined) {
+      res[j][l].push(extraNum);
+      const extraNum2 = res[j][l].shift();
+      let m = Math.round(Math.random() * Math.floor(halfLen - 1));
+      while (m === l) {
+        m = Math.round(Math.random() * Math.floor(halfLen - 1));
       }
+      res[j][m].push(extraNum2);
     }
-    pairs.splice(1, 0, pairs.pop());
+    numArr.splice(1, 0, numArr.pop());
+  }
+  return res;
+}
+
+const generateTrioCase = (numArr, numRounds) => {
+  let res = [];
+  let round = [];
+  let single;
+  while (numRounds) {
+    single = numArr.shift();
+    round = [];
+    round.push([single], [...numArr]);
+    res.push(round);
+    numArr.push(single);
+    numRounds--;
   }
   return res;
 }
