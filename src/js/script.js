@@ -24,8 +24,8 @@ $(document).ready(function () {
           .show();
         $numPeople.focus();
       }
-      else if (num2 < 6) { // display warning and focus on input fields
-        $error.append(messageOutput('Number of rounds must be >= 6!'))
+      else if (num2 < 1) { // display warning and focus on input fields
+        $error.append(messageOutput('Number of rounds must be >= 1!'))
           .show();
         $numRounds.focus();
       } else {
