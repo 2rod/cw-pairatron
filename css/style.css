@@ -16,6 +16,11 @@ input[type="text"]:focus {
   border: 1px solid #ff7b10;
 }
 
+.container {
+  margin-top: 10%;
+  transition: linear 200ms;
+}
+
 .centered {
   text-align: center;
 }
@@ -24,4 +29,31 @@ input[type="text"]:focus {
   display: flex;
   align-items: baseline;
   justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #c00;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+table {
+  width: 100%;
+}
+
+th:first-child {
+  width: 25%;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.grayBg {
+  background-color: #eee;
 }
