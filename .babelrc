@@ -1,4 +1,6 @@
 {
-  "presets": ["env"],
+  "presets": ["env", {
+    "node": "current"
+  }],
   "plugins": ["transform-async-to-generator"]
 }
