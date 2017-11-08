@@ -9,28 +9,31 @@ if ('HEROKU' in process.env || ('DYNO' in process.env && process.env.HOME === '/
   let deps = pkg.devDependencies;
   let packages = "";
 
-  Object.keys(deps).forEach((key) => {
-    packages += `${key}@${deps[key]} `; // note space at end to separate entries
-  });
+  if (deps.keys.length > 0) {
 
-  try {
-    console.time("install");
-    console.log("starting npm install of dev dependencies");
-    ChildProcess.execSync(`npm install ${packages}`);
-    console.timeEnd("install");
+    Object.keys(deps).forEach((key) => {
+      packages += `${key}@${deps[key]} `; // note space at end to separate entries
+    });
 
-    console.time("build");
-    console.log("starting npm build");
-    ChildProcess.execSync(`npm run build:all`);
-    console.timeEnd("build");
+    try {
+      console.time("install");
+      console.log("starting npm install of dev dependencies");
+      ChildProcess.execSync(`npm install ${packages}`);
+      console.timeEnd("install");
 
-    console.time("uninstall");
-    console.log("starting npm uninstall of dev dependencies");
-    ChildProcess.execSync(`npm uninstall ${packages}`);
-    console.timeEnd("uninstall");
-  }
-  catch (err) {
-    console.error(err.message);
+      console.time("build");
+      console.log("starting npm build");
+      ChildProcess.execSync(`npm run build:all`);
+      console.timeEnd("build");
+
+      console.time("uninstall");
+      console.log("starting npm uninstall of dev dependencies");
+      ChildProcess.execSync(`npm uninstall ${packages}`);
+      console.timeEnd("uninstall");
+    }
+    catch (err) {
+      console.error(err.message);
+    }
   }
 } else {
   console.log("Not Heroku, skipping postinstall build");
