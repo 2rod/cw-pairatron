@@ -17,7 +17,7 @@ const pairingProblem = (num1, num2) => {
     let l = Math.round(Math.random() * Math.floor(num1/2 - 1))
     if (oddPair !== undefined) {
       res[j][l].push(oddPair)
-      if (oddPair != 3) {
+      if (num1 != 3) {
         const thirdPerson = res[j][l].shift()
         let m = Math.round(Math.random() * Math.floor(num1/2 - 1))
         while (m === l) {
