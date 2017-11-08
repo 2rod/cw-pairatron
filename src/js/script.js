@@ -5,6 +5,7 @@ $(document).ready(function () {
     let $container = $('.container');
     let $numPeople = $('#numPeople');
     let $numRounds = $('#numRounds');
+    let $button = $('.button-primary');
     let $error = $('.error');
     let $results = $('.results');
     let $table = $('.results table');
@@ -34,7 +35,7 @@ $(document).ready(function () {
           $numRounds.val('');
         } else {
           // change value of submit button for odd number of people
-          $('.button-primary').attr('value', 'RUN AGAIN!');
+          $button.attr('value', 'RUN AGAIN!');
         }
         // generate pairings
         let sessions = pairingProblem(num1,num2);
