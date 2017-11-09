@@ -26,9 +26,7 @@ const generatePairs = (numArr, numRounds, extraNum) => {
       res[j][l].push(extraNum);
       const extraNum2 = res[j][l].shift();
       let m = getRandomInt(halfLen);
-      while (m === l) {
-        m = getRandomInt(halfLen);
-      }
+      m = getRandomInt(halfLen);
       res[j][m].push(extraNum2);
     }
     numArr.splice(1, 0, numArr.pop());
