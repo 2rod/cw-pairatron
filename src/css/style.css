@@ -50,6 +50,10 @@ th:first-child {
   padding-left: 15px;
 }
 
+th:last-child, td:last-child {
+  padding-right: 15px;
+}
+
 th, td {
   border: 1px solid #ccc;
   text-align: center;
