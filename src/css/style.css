@@ -47,6 +47,7 @@ table {
 
 th:first-child {
   width: 25%;
+  padding-left: 15px;
 }
 
 th, td {
