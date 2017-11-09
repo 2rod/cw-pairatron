@@ -58,3 +58,11 @@ th, td {
 .grayBg {
   background-color: #eee;
 }
+
+/* Smaller than phablet (just before grid becomes active) */
+@media (max-width: 549px) {
+  .row.flex.inputs {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
