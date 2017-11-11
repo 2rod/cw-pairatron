@@ -40,11 +40,13 @@ const handleOddStudent = (roundsOfPairs, oddStudent) => {
         }
       })
     })
-    const trioPair = calcTrio % roundsOfPairs.length
+    const trioPair = calcTrio % setOfPairs.length
     setOfPairs[trioPair].push(oddStudent)
-    calcTrio++
-    if (oddStudent > 1) oddStudent --
+    if (oddStudent > 1) oddStudent--
     else oddStudent = totalStudents
+    // prevent value of calcTrio to go above number of pairs
+    if (trioPair === setOfPairs.length) calcTrio -= setOfPairs.length
+    else calcTrio++
   })
   return roundsOfPairs;
 }
