@@ -20,6 +20,7 @@ const generatePairs = (studentsArr, rounds) => {
   const noOfPairs = studentsArr.length/2;
   for (let j = 0; j < rounds; j++) {
     pairs[j] = [];
+    if (j > 0 && j % 2 === 0) studentsArr.push(studentsArr.splice(3,1)[0]);
     for (let k = 0; k <= noOfPairs - 1; k++) {
       let l = k * 2;
       pairs[j].push([studentsArr[l], studentsArr[l + 1]]);
