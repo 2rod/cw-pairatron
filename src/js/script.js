@@ -29,14 +29,9 @@ $(document).ready(function () {
           .show();
         $numRounds.focus();
       } else {
-        // empty input fields for even number of people
-        if (num1 % 2 === 0) {
-          $numPeople.val('').focus();
-          $numRounds.val('');
-        } else {
-          // change value of submit button for odd number of people
-          $button.attr('value', 'RUN AGAIN!');
-        }
+        // change value of submit button
+        $button.attr('value', 'RUN AGAIN!');
+
         // generate pairings
         let sessions = pairingProblem(num1,num2);
 
