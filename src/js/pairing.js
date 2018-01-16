@@ -45,7 +45,6 @@ const generatePairs1 = (pairs, num2) => {
 
 const handleOddStudent = (roundsOfPairs, oddStudent) => {
   let calcTrio = 0;
-  const trioPair = Math.floor(Math.random() * roundsOfPairs[0].length)
   const totalStudents = oddStudent;
   roundsOfPairs.forEach(setOfPairs => {
     setOfPairs.forEach(pair => {
@@ -56,6 +55,7 @@ const handleOddStudent = (roundsOfPairs, oddStudent) => {
         }
       })
     })
+    const trioPair = Math.floor(Math.random() * roundsOfPairs[0].length)
     setOfPairs[trioPair].push(oddStudent)
     if (oddStudent > 1) oddStudent--
     else oddStudent = totalStudents
