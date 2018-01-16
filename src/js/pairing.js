@@ -9,10 +9,10 @@ const pairingProblem = (students, rounds) => {
       return generateTrioCase(studentsArr, rounds);
     } else oddStudent = studentsArr.pop()
       students -=1
-      const roundsOfPairs = generatePairs(studentsArr, rounds)
+      const roundsOfPairs = generatePairs1(studentsArr, rounds)
       return handleOddStudent(roundsOfPairs, oddStudent);
   }
-  return generatePairs(studentsArr, rounds);
+  return generatePairs1(studentsArr, rounds);
 }
 
 const generatePairs = (studentsArr, rounds) => {
@@ -20,8 +20,6 @@ const generatePairs = (studentsArr, rounds) => {
   const noOfPairs = studentsArr.length/2;
   for (let j = 0; j < rounds; j++) {
     pairs[j] = [];
-    const randomIndex = Math.floor(Math.random() * noOfPairs * 2);
-    if (j > 0 && j % 2 === 0) studentsArr.push(studentsArr.splice(randomIndex, 1)[0]);
     for (let k = 0; k <= noOfPairs - 1; k++) {
       const l = k * 2;
       pairs[j].push([studentsArr[l], studentsArr[l + 1]]);
@@ -31,8 +29,23 @@ const generatePairs = (studentsArr, rounds) => {
   return pairs;
 }
 
+const generatePairs1 = (pairs, num2) => {
+  const res = []
+  let oddPair;
+
+  for (let j = 0; j < num2; j++) {
+    res[j] = []
+    for (let k = 0; k < pairs.length/2; k++) {
+      res[j].push([pairs[k], pairs[pairs.length - 1 - k]]);
+    }
+    pairs.splice(1, 0, pairs.pop());
+  }
+  return res;
+}
+
 const handleOddStudent = (roundsOfPairs, oddStudent) => {
   let calcTrio = 0;
+  const trioPair = Math.floor(Math.random() * roundsOfPairs[0].length)
   const totalStudents = oddStudent;
   roundsOfPairs.forEach(setOfPairs => {
     setOfPairs.forEach(pair => {
@@ -43,13 +56,9 @@ const handleOddStudent = (roundsOfPairs, oddStudent) => {
         }
       })
     })
-    const trioPair = calcTrio % setOfPairs.length
     setOfPairs[trioPair].push(oddStudent)
     if (oddStudent > 1) oddStudent--
     else oddStudent = totalStudents
-    // prevent value of calcTrio to go above number of pairs
-    if (trioPair === setOfPairs.length) calcTrio -= setOfPairs.length
-    else calcTrio++
   })
   return roundsOfPairs;
 }
